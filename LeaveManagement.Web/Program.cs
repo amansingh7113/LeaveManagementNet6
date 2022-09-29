@@ -2,7 +2,7 @@ using LeaveManagement.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-using LeaveManagement.Web.Configurations;
+using LeaveManagement.Application.Configurations;
 using LeaveManagement.Application.Contracts;
 using LeaveManagement.Application.Repositories;
 using Microsoft.AspNetCore.Identity.UI.Services;
