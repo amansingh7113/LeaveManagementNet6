@@ -1,15 +1,17 @@
-using LeaveManagement.Web.Data;
+using LeaveManagement.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using LeaveManagement.Web.Configurations;
-using LeaveManagement.Web.Contracts;
-using LeaveManagement.Web.Repositories;
+using LeaveManagement.Application.Contracts;
+using LeaveManagement.Application.Repositories;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using LeaveManagement.Web;
 using LeaveManagement.Web.Services;
 using Serilog;
 using LeaveManagement.Application.Repositories;
+using LeaveManagement.Data;
+using LeaveManagementApplication.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
