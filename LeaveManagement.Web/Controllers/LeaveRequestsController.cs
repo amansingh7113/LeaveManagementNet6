@@ -17,11 +17,13 @@ namespace LeaveManagement.Web.Controllers
     [Authorize]
     public class LeaveRequestsController : Controller
     {
+        private readonly ILogger<LeaveRequestsController> logger;
         private readonly ILeaveRequestRepository leaveRequestRepository;
         private readonly ILeaveTypeRepository leaveTypeRepository;
 
-        public LeaveRequestsController(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository)
+        public LeaveRequestsController(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, ILogger<LeaveRequestsController> logger)
         {
+            this.logger = logger;
             this.leaveRequestRepository = leaveRequestRepository;
             this.leaveTypeRepository = leaveTypeRepository;
         }
@@ -61,7 +63,7 @@ namespace LeaveManagement.Web.Controllers
             }
             catch (Exception ex)
             {
-
+                logger.LogError(ex, "Error in approvig request");
                 throw;
             }
             return RedirectToAction(nameof(Index));
@@ -77,7 +79,7 @@ namespace LeaveManagement.Web.Controllers
             }
             catch (Exception ex)
             {
-
+                logger.LogError(ex, "Error in cancelling request");
                 throw;
             }
             return RedirectToAction(nameof(MyLeave));
@@ -114,6 +116,7 @@ namespace LeaveManagement.Web.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Error in creating leave request");
                 ModelState.AddModelError(string.Empty, "An Error Has Occurred. Please Try Again Later");
             }
             
